@@ -3,7 +3,7 @@
         <form action="{{ route('update-post', $post) }}" method="post">
             @csrf
             @method('patch')
-            <x-forms.post></x-forms.post>
+            <x-forms.post :post="$post"></x-forms.post>
             <input type="submit" value="Enviar" />
         </form>
     </x-slot:content>

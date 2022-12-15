@@ -30,11 +30,18 @@ class PostController extends Controller
 
     public function edit(Post $post) {
         $post = Post::findOrFail($post->id);
+        // dd($post);
         return view('posts.edit', ['post' => $post, 'title' => 'Edit post']);
     }
 
     public function update(SavePostRequest $request, Post $post) {
         $post->update($request->validated());
         return to_route('show-post', $post)->with('status', '¡¡Post actualizado!!');
+    }
+
+    public function destroy(Post $post) {
+        $post->delete();
+
+        return to_route('blog')->with('status', '¡Post eliminado!');
     }
 }

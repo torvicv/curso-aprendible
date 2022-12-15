@@ -30,5 +30,6 @@ Route::controller(WebController::class)->prefix('web')->group(function() {
         Route::post('/', 'store')->name('store-post');
         Route::get('/{post}/edit', 'edit')->name('edit-post');
         Route::patch('/{post}/update', 'update')->name('update-post');
+        Route::delete('/{post}', 'destroy')->name('delete-post');
     });
 });
