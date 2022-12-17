@@ -6,7 +6,14 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'hrlist': '-12px -6px 12px #dbeafe,12px -6px 12px #dbeafe, 0px 5px 12px black'
+      },
+      height: {
+        'screen5': '83.333vh'
+      },
+    },
   },
   plugins: [],
 }

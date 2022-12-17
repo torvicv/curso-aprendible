@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\LoginUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +35,13 @@ Route::controller(WebController::class)->prefix('web')->group(function() {
         Route::delete('/{post}', 'destroy')->name('delete-post');
     });
 });
+
+Route::get('/register', [RegisterUserController::class, 'index'])->name('register');
+
+Route::post('/register', [RegisterUserController::class, 'store'])->name('register-user');
+
+Route::get('/login', [LoginUserController::class, 'index'])->name('login');
+
+Route::post('/login', [LoginUserController::class, 'login'])->name('login-user');
+
+Route::post('/logout', [LoginUserController::class, 'logout'])->name('logout');
